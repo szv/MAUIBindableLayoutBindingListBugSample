@@ -8,34 +8,34 @@
             <Label Text="{Binding}" />
         </DataTemplate>
     </ContentPage.Resources>
-    <ScrollView>
-        <VerticalStackLayout>
+    <Grid RowDefinitions="*,Auto,Auto">
+        <ScrollView Grid.Row="0">
             <Grid RowDefinitions="20,*" ColumnDefinitions="*,*">
                 <Label
-                Grid.Row="0"
-                Grid.Column="0"
-                Text="BindingList" />
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="BindingList" />
                 <VerticalStackLayout
-                Grid.Row="1"
-                Grid.Column="0"
-                BindableLayout.ItemsSource="{Binding LeftItems, Mode=OneWay}"
-                BindableLayout.ItemTemplate="{StaticResource ItemTemplate}" />
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BindableLayout.ItemsSource="{Binding LeftItems, Mode=OneWay}"
+                    BindableLayout.ItemTemplate="{StaticResource ItemTemplate}" />
 
                 <Label
-                Grid.Row="0"
-                Grid.Column="1"
-                Text="ObservableCollection" />
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="ObservableCollection" />
                 <VerticalStackLayout
-                Grid.Row="1"
-                Grid.Column="1"
-                BindableLayout.ItemsSource="{Binding RightItems, Mode=OneWay}"
-                BindableLayout.ItemTemplate="{StaticResource ItemTemplate}" />
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BindableLayout.ItemsSource="{Binding RightItems, Mode=OneWay}"
+                    BindableLayout.ItemTemplate="{StaticResource ItemTemplate}" />
             </Grid>
-            <Button
-                Text="Add Item"
-                Clicked="AddItemButton_Clicked" />
-
-            <Label Text="{Binding FrameworkVersion}" />
-        </VerticalStackLayout>
-    </ScrollView>
+        </ScrollView>
+        <Button
+            Grid.Row="1"
+            Text="Add Item"
+            Clicked="AddItemButton_Clicked" />
+        <Label Grid.Row="2" Text="{Binding FrameworkVersion}" />
+    </Grid>
 </ContentPage>
